@@ -1,0 +1,16 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  color: white;
+}
+
+nav h1 {
+  margin: 0;
+  padding: 10px 0 10px 20px;
+}
+
+nav .menu-items {
+  padding-right: 20px;
+}

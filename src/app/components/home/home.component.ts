@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NowPlayingService } from 'src/app/shared/services/now-playing.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private nowPlayingService: NowPlayingService) { }
 
   ngOnInit() {
+    this.nowPlayingService.getNowPlayingMovies()
+      .then(
+        res => console.log(res)
+      );
   }
 
 }
