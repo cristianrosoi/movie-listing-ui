@@ -2,21 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { ServiceUrls } from './../constants/service-urls.constant';
-import { IMovieListings } from '../models/movie-listing.interface';
+import { IConfiguration } from '../models/configuration.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NowPlayingService {
+export class ConfigurationService {
 
   constructor(private http: HttpClient) { }
 
   healthCheck(): void {
-    console.log('Running NowPlayingService');
+    console.log('Running ConfigurationService');
   }
 
-  getNowPlayingMovies(): Promise<IMovieListings> {
-    return this.http.get<IMovieListings>(ServiceUrls.NOW_PLAYING_URL).toPromise();
+  getDetails(): Promise<IConfiguration> {
+    return this.http.get<IConfiguration>(ServiceUrls.CONFIGURATION_URL).toPromise();
   }
-
 }

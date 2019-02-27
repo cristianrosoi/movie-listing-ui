@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { NowPlayingService } from 'src/app/shared/services/now-playing.service';
+import { IMovieListings } from 'src/app/shared/models/movie-listing.interface';
+import { IConfiguration } from 'src/app/shared/models/configuration.interface';
+import { ConfigurationService } from './../../shared/services/configuration.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +12,33 @@ import { NowPlayingService } from 'src/app/shared/services/now-playing.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private nowPlayingService: NowPlayingService) { }
+  movieListings: IMovieListings;
+  configuration: IConfiguration;
+
+  constructor(private nowPlayingService: NowPlayingService, private configurationService: ConfigurationService) { }
 
   ngOnInit() {
+   this.getNowPlayingMovies();
+   this.getConfiguration();
+  }
+
+  public getNowPlayingMovies(): void {
     this.nowPlayingService.getNowPlayingMovies()
+    .then(
+      (response: IMovieListings) => {
+        console.log(response);
+        this.movieListings = response;
+      }
+    );
+  }
+
+  public getConfiguration(): void {
+    this.configurationService.getDetails()
       .then(
-        res => console.log(res)
+        (response: IConfiguration) => {
+          console.log(response);
+          this.configuration = response;
+        }
       );
   }
 
