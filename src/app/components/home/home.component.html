@@ -1,16 +1,23 @@
 <div class="main-container">
-  <div class="movie-filtering">
+  <div class="movie-sorting">
     <form>
-      <label for="filterList">Sort by: </label>
-      <select id="filterList" [(ngModel)]="filterList" name="filsterList">
+      <label for="sortingList">Sort by: </label>
+      <select id="sortingList" [(ngModel)]="sortingList" name="sortingList">
         <option *ngFor="let option of sortOptions" [value]="option.value"> {{ option.text }} </option>
       </select>
     </form>
   </div>
 
+  <div class="movie-filtering">
+    <form>
+      <label for="filterField">Filter by rating: </label>
+      <input id="filterField" type="number" step="0.5" min="0" max="10" [(ngModel)]="filterTerm" name="filterField">
+    </form>
+  </div>
+
   <div class="movie-listings">
     <app-movie-listing
-      *ngFor="let movie of (movieListings?.results | filterListings: filterList)"
+      *ngFor="let movie of (movieListings?.results | filterListings: sortingList:filterTerm)"
       [movie]="movie"
       [configuration]="configuration"
       class="movie-item">

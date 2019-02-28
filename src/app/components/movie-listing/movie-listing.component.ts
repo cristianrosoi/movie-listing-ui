@@ -17,6 +17,11 @@ export class MovieListingComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Retrieves the full image URL by using
+   * information from the Configuration API and
+   * Images API => base_url + poster_size + image_path
+   */
   buildFullImagePath(path: string): string {
     if (this.configuration && this.configuration.images) {
       return `${this.configuration.images.base_url}${this.configuration.images.poster_sizes[2]}${path}`;

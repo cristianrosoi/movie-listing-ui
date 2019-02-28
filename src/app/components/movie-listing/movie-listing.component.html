@@ -1,5 +1,5 @@
-<h4>{{movie?.title}}</h4>
-<p>Popularity: {{movie?.popularity}}</p>
-<p>Rating: {{movie?.vote_average}}</p>
-<img src="{{buildFullImagePath(movie?.poster_path)}}" alt="{{movie?.title}} poster" class="responsive-img">
-<p>{{movie?.genre_ids}}</p>
+<h4>{{ movie?.title }}</h4>
+<p>Popularity: {{ movie?.popularity }}</p>
+<p>Rating: {{ movie?.vote_average }}</p>
+<img src="{{ buildFullImagePath(movie?.poster_path) }}" alt="{{ movie?.title }} poster" class="responsive-img">
+<p>{{ movie?.genre_ids }}</p>
