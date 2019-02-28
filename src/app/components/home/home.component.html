@@ -1,7 +1,16 @@
 <div class="main-container">
+  <div class="movie-filtering">
+    <form>
+      <label for="filterList">Sort by: </label>
+      <select id="filterList" [(ngModel)]="filterList" name="filsterList">
+        <option *ngFor="let option of sortOptions" [value]="option.value"> {{ option.text }} </option>
+      </select>
+    </form>
+  </div>
+
   <div class="movie-listings">
     <app-movie-listing
-      *ngFor="let movie of movieListings?.results"
+      *ngFor="let movie of (movieListings?.results | filterListings: filterList)"
       [movie]="movie"
       [configuration]="configuration"
       class="movie-item">

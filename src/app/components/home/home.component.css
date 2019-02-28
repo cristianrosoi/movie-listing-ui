@@ -9,3 +9,7 @@
   object-fit: cover;
   text-align: center;
 }
+
+.movie-filtering {
+  margin: 20px 0;
+}
