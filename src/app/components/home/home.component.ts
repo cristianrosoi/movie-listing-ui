@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     Promise.all([this.nowPlayingService.getNowPlayingMovies(), this.configurationService.getDetails()])
       .then(
-        (responses) => {
-          this.movieListings = responses[0] as IMovieListings;
-          this.configuration = responses[1] as IConfiguration;
+        (responses: any[]) => {
+          this.movieListings = responses[0];
+          this.configuration = responses[1];
         }
       );
 
