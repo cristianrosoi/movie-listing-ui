@@ -13,7 +13,7 @@ export class FilterListingsPipe implements PipeTransform {
     /**
      * Sort the list whenever there is no filterTerm
      */
-    if (!filterTerm) {
+    if (value && !filterTerm) {
       return sortBy(value, option).reverse();
     }
 
@@ -21,8 +21,10 @@ export class FilterListingsPipe implements PipeTransform {
      * filter first and then sort in order to enable sorting
      * on a filtered list
      */
-    const filtered = value.filter(item => item.vote_average >= parseInt(filterTerm, 10));
-    return sortBy(filtered, option).reverse();
+    if (value && filterTerm) {
+      const filtered = value.filter(item => item.vote_average >= parseInt(filterTerm, 10));
+      return sortBy(filtered, option).reverse();
+    }
   }
 
 }

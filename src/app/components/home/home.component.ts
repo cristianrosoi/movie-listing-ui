@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit {
 
     // Set the default selected option
     this.sortingList = this.sortOptions[0].value;
+
+    // Set the default filter rating
+    this.filterTerm = CONSTANTS.defaultFilterTerm;
   }
 
   /**

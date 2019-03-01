@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { ServiceUrls } from './../constants/service-urls.constant';
 import { IMovieListings } from '../models/movie-listing.interface';
+import { BuildUrl } from './../utils/buildUrl.util';
+import { Config } from 'src/app/config';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,11 @@ export class NowPlayingService {
   }
 
   getNowPlayingMovies(): Promise<IMovieListings> {
-    return this.http.get<IMovieListings>(ServiceUrls.NOW_PLAYING_URL).toPromise();
+    const buildUrl = new BuildUrl();
+    const url = buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE);
+    const mockedUrl = ServiceUrls.MOCKED.NOW_PLAYING_URL;
+
+    return this.http.get<IMovieListings>(mockedUrl).toPromise();
   }
 
 }

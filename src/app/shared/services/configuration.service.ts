@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { ServiceUrls } from './../constants/service-urls.constant';
 import { IConfiguration } from '../models/configuration.interface';
+import { BuildUrl } from './../utils/buildUrl.util';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,10 @@ export class ConfigurationService {
   }
 
   getDetails(): Promise<IConfiguration> {
-    return this.http.get<IConfiguration>(ServiceUrls.CONFIGURATION_URL).toPromise();
+    const buildUrl = new BuildUrl();
+    const url = buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL);
+    const mockedUrl = ServiceUrls.MOCKED.CONFIGURATION_URL;
+
+    return this.http.get<IConfiguration>(mockedUrl).toPromise();
   }
 }
