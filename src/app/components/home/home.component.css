@@ -4,6 +4,14 @@
   gap: 1em;
 }
 
+.no-movie-listings,
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
 .movie-item {
   position: relative;
   display: flex;
@@ -24,16 +32,19 @@
 }
 
 #filterField {
+  width: 60px;
   text-indent: 20px;
   background: transparent;
   border: none;
   border-bottom: 1px solid #ababab;
+  font-size: 1.1em;
 }
 
 #sortingList {
   background: #1e272e;
   border: none;
   min-height: 30px;
+  font-size: 1.1em;
 }
 
 label,

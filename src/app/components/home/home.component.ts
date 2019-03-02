@@ -44,8 +44,11 @@ export class HomeComponent implements OnInit {
     Promise.all([this.nowPlayingService.getNowPlayingMovies(), this.configurationService.getDetails()])
       .then(
         (responses: any[]) => {
-          this.movieListings = responses[0];
-          this.configuration = responses[1];
+          // fake a loading time
+          setTimeout(() => {
+            this.movieListings = responses[0];
+            this.configuration = responses[1];
+          }, 1000);
         }
       );
   }

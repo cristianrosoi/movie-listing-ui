@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { FilterListingsPipe } from './shared/pipes/filter-listings.pipe';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FilterListingsPipe } from './shared/pipes/filter-listings.pipe';
     HomeComponent,
     MovieListingComponent,
     FilterListingsPipe,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

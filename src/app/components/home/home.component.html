@@ -13,12 +13,20 @@
     </form>
   </div>
 
-  <div class="movie-listings">
+  <div *ngIf="!movieListings" class="loader">
+    <app-loader></app-loader>
+  </div>
+
+  <div *ngIf="movieListings" class="movie-listings">
     <app-movie-listing
       *ngFor="let movie of (movieListings?.results | filterListings: sortingList:filterTerm)"
       [movie]="movie"
       [configuration]="configuration"
       class="movie-item">
     </app-movie-listing>
+  </div>
+
+  <div *ngIf="(movieListings?.results | filterListings: sortingList:filterTerm).length == 0" class="no-movie-listings">
+    <h2>Sorry, no movies available</h2>
   </div>
 </div>
