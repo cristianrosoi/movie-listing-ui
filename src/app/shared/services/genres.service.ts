@@ -11,10 +11,6 @@ export class GenresService {
 
   constructor(private http: HttpClient) { }
 
-  healthCheck(): void {
-    console.log('Running GenresService');
-  }
-
   getDetails(): Promise<IGenres> {
     const buildUrl = new BuildUrl();
     const url = buildUrl.fromPath(ServiceUrls.GENRES_URL);

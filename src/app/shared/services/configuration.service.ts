@@ -12,10 +12,6 @@ export class ConfigurationService {
 
   constructor(private http: HttpClient) { }
 
-  healthCheck(): void {
-    console.log('Running ConfigurationService');
-  }
-
   getDetails(): Promise<IConfiguration> {
     const buildUrl = new BuildUrl();
     const url = buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL);

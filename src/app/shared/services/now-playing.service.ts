@@ -13,10 +13,6 @@ export class NowPlayingService {
 
   constructor(private http: HttpClient) { }
 
-  healthCheck(): void {
-    console.log('Running NowPlayingService');
-  }
-
   getNowPlayingMovies(): Promise<IMovieListings> {
     const buildUrl = new BuildUrl();
     const url = buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE);
