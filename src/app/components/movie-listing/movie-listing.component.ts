@@ -24,7 +24,7 @@ export class MovieListingComponent implements OnInit {
    */
   buildFullImagePath(path: string): string {
     if (this.configuration && this.configuration.images) {
-      return `${this.configuration.images.base_url}${this.configuration.images.poster_sizes[2]}${path}`;
+      return `${this.configuration.images.base_url}${this.configuration.images.poster_sizes[3]}${path}`;
     }
   }
 

@@ -1,14 +1,12 @@
 <div class="main-container">
-  <div class="movie-sorting">
+  <div class="movie-filtering">
     <form>
       <label for="sortingList">Sort by: </label>
       <select id="sortingList" [(ngModel)]="sortingList" name="sortingList">
         <option *ngFor="let option of sortOptions" [value]="option.value"> {{ option.text }} </option>
       </select>
     </form>
-  </div>
 
-  <div class="movie-filtering">
     <form>
       <label for="filterField">Filter by rating: </label>
       <input id="filterField" type="number" step="0.5" min="0" max="10" [(ngModel)]="filterTerm" name="filterField">

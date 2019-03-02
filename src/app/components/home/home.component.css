@@ -1,15 +1,48 @@
 .movie-listings {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   gap: 1em;
 }
 
 .movie-item {
-  border: 1px solid rgba(0, 0, 0, 1);
-  object-fit: cover;
-  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .movie-filtering {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin: 20px 0;
+}
+
+.movie-filtering form {
+  margin-right: 20px;
+}
+
+#filterField {
+  text-indent: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ababab;
+}
+
+#sortingList {
+  background: #1e272e;
+  border: none;
+  min-height: 30px;
+}
+
+label,
+#filterField,
+#sortingList {
+  color: #ababab;
+}
+
+#filterField:focus,
+#sortingList:focus {
+  outline: none;
 }
