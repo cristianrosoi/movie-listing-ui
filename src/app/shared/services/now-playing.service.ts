@@ -13,12 +13,23 @@ export class NowPlayingService {
 
   constructor(private http: HttpClient) { }
 
-  getNowPlayingMovies(): Promise<IMovieListings> {
+  /**
+   * Private method which gets the API URL
+   * if there is an API_KEY defined in Config.ts
+   * else gets the mocked data URL
+   */
+  private getUrl(): string {
     const buildUrl = new BuildUrl();
-    const url = buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE);
-    const mockedUrl = ServiceUrls.MOCKED.NOW_PLAYING_URL;
 
-    return this.http.get<IMovieListings>(url).toPromise();
+    if (Config.API_KEY && Config.API_KEY.length > 0) {
+      return buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE);
+    }
+
+    return ServiceUrls.MOCKED.NOW_PLAYING_URL;
+  }
+
+  getNowPlayingMovies(): Promise<IMovieListings> {
+    return this.http.get<IMovieListings>(this.getUrl()).toPromise();
   }
 
 }

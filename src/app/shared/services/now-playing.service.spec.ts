@@ -35,7 +35,16 @@ describe('NowPlayingService', () => {
         }
       );
     const buildUrl = new BuildUrl();
-    const req = httpMock.expectOne(buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE));
+    let url: string;
+
+    if (Config.API_KEY && Config.API_KEY.length > 0) {
+      url = buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE);
+    } else {
+      url = ServiceUrls.MOCKED.NOW_PLAYING_URL;
+    }
+
+    const req = httpMock.expectOne(url);
+
     expect(req.request.method).toBe('GET');
   }));
 

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ServiceUrls } from './../constants/service-urls.constant';
 import { IConfiguration } from '../models/configuration.interface';
 import { BuildUrl } from './../utils/buildUrl.util';
+import { Config } from 'src/app/config';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,22 @@ export class ConfigurationService {
 
   constructor(private http: HttpClient) { }
 
-  getDetails(): Promise<IConfiguration> {
+  /**
+   * Private method which gets the API URL
+   * if there is an API_KEY defined in Config.ts
+   * else gets the mocked data URL
+   */
+  private getUrl(): string {
     const buildUrl = new BuildUrl();
-    const url = buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL);
-    const mockedUrl = ServiceUrls.MOCKED.CONFIGURATION_URL;
 
-    return this.http.get<IConfiguration>(url).toPromise();
+    if (Config.API_KEY && Config.API_KEY.length > 0) {
+      return buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL);
+    }
+
+    return ServiceUrls.MOCKED.CONFIGURATION_URL;
+  }
+
+  getDetails(): Promise<IConfiguration> {
+    return this.http.get<IConfiguration>(this.getUrl()).toPromise();
   }
 }

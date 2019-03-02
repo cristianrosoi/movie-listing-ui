@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ConfigurationService } from './configuration.service';
 import { IConfiguration } from '../models/configuration.interface';
 import { ServiceUrls } from '../constants/service-urls.constant';
+import { Config } from 'src/app/config';
 
 describe('ConfigurationService', () => {
   let service: ConfigurationService;
@@ -33,7 +34,16 @@ describe('ConfigurationService', () => {
         }
       );
     const buildUrl = new BuildUrl();
-    const req = httpMock.expectOne(buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL));
+    let url: string;
+
+    if (Config.API_KEY && Config.API_KEY.length > 0) {
+      url = buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL);
+    } else {
+      url = ServiceUrls.MOCKED.CONFIGURATION_URL;
+    }
+
+    const req = httpMock.expectOne(url);
+
     expect(req.request.method).toBe('GET');
   }));
 
