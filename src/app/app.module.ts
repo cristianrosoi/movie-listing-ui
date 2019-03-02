@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { FilterListingsPipe } from './shared/pipes/filter-listings.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
+import { PrintGenrePipe } from './shared/pipes/print-genre.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     MovieListingComponent,
     FilterListingsPipe,
     LoaderComponent,
+    PrintGenrePipe,
   ],
   imports: [
     BrowserModule,

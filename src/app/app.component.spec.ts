@@ -1,3 +1,4 @@
+import { PrintGenrePipe } from './shared/pipes/print-genre.pipe';
 import { MovieListingComponent } from './components/movie-listing/movie-listing.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TestBed, async } from '@angular/core/testing';
@@ -15,7 +16,8 @@ describe('AppComponent', () => {
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        MovieListingComponent
+        MovieListingComponent,
+        PrintGenrePipe
       ],
     }).compileComponents();
   }));

@@ -1,3 +1,12 @@
+.movie-title {
+  margin-bottom: 10px;
+}
+
+.genres {
+  font-size: 0.75em;
+  text-align: center;
+}
+
 /**
 * Make all images to have the same height
 */

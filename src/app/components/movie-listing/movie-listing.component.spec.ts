@@ -1,7 +1,7 @@
-import { HeaderComponent } from './../header/header.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieListingComponent } from './movie-listing.component';
+import { PrintGenrePipe } from 'src/app/shared/pipes/print-genre.pipe';
 
 describe('MovieListingComponent', () => {
   let component: MovieListingComponent;
@@ -9,7 +9,7 @@ describe('MovieListingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieListingComponent ]
+      declarations: [ MovieListingComponent, PrintGenrePipe ]
     })
     .compileComponents();
   }));

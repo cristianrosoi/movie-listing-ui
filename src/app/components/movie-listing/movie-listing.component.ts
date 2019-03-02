@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IMovie } from 'src/app/shared/models/movie.interface';
 import { IConfiguration } from 'src/app/shared/models/configuration.interface';
+import { PrintGenrePipe } from './../../shared/pipes/print-genre.pipe';
+import { IGenres } from 'src/app/shared/models/genres.interface';
 
 @Component({
   selector: 'app-movie-listing',
@@ -11,6 +13,7 @@ export class MovieListingComponent implements OnInit {
 
   @Input() movie: IMovie;
   @Input() configuration: IConfiguration;
+  @Input() genres: IGenres;
 
   constructor() { }
 

@@ -1,3 +1,4 @@
 <img src="{{ buildFullImagePath(movie?.poster_path) }}" alt="{{ movie?.title }} poster" class="responsive-img">
-<h4>{{ movie?.title }}</h4>
+<h4 class="movie-title">{{ movie?.title }}</h4>
+<span class="genres">{{ movie?.genre_ids | printGenre: genres}}</span>
 <span class="rating">{{ movie?.vote_average }}</span>

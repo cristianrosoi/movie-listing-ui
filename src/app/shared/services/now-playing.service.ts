@@ -28,7 +28,7 @@ export class NowPlayingService {
     return ServiceUrls.MOCKED.NOW_PLAYING_URL;
   }
 
-  getNowPlayingMovies(): Promise<IMovieListings> {
+  public getNowPlayingMovies(): Promise<IMovieListings> {
     return this.http.get<IMovieListings>(this.getUrl()).toPromise();
   }
 

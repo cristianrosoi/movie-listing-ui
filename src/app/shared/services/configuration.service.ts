@@ -28,7 +28,7 @@ export class ConfigurationService {
     return ServiceUrls.MOCKED.CONFIGURATION_URL;
   }
 
-  getDetails(): Promise<IConfiguration> {
+  public getDetails(): Promise<IConfiguration> {
     return this.http.get<IConfiguration>(this.getUrl()).toPromise();
   }
 }

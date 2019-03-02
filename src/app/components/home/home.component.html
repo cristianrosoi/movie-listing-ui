@@ -22,6 +22,7 @@
       *ngFor="let movie of (movieListings?.results | filterListings: sortingList:filterTerm)"
       [movie]="movie"
       [configuration]="configuration"
+      [genres]="genres"
       class="movie-item">
     </app-movie-listing>
   </div>

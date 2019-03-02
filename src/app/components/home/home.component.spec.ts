@@ -1,3 +1,4 @@
+import { PrintGenrePipe } from './../../shared/pipes/print-genre.pipe';
 import { CONSTANTS } from './../../shared/constants/constants';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -24,7 +25,8 @@ describe('HomeComponent', () => {
         HomeComponent,
         FilterListingsPipe,
         MovieListingComponent,
-        LoaderComponent
+        LoaderComponent,
+        PrintGenrePipe
       ]
     })
     .compileComponents();
