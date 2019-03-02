@@ -18,7 +18,7 @@ export class NowPlayingService {
     const url = buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE);
     const mockedUrl = ServiceUrls.MOCKED.NOW_PLAYING_URL;
 
-    return this.http.get<IMovieListings>(mockedUrl).toPromise();
+    return this.http.get<IMovieListings>(url).toPromise();
   }
 
 }

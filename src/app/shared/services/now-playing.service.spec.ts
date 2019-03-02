@@ -1,3 +1,5 @@
+import { Config } from 'src/app/config';
+import { BuildUrl } from './../utils/buildUrl.util';
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
@@ -32,8 +34,8 @@ describe('NowPlayingService', () => {
           expect(result).toBeDefined();
         }
       );
-
-    const req = httpMock.expectOne(ServiceUrls.MOCKED.NOW_PLAYING_URL);
+    const buildUrl = new BuildUrl();
+    const req = httpMock.expectOne(buildUrl.fromPath(ServiceUrls.NOW_PLAYING_URL, Config.PAGE));
     expect(req.request.method).toBe('GET');
   }));
 

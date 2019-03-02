@@ -50,7 +50,7 @@ describe('MovieListingComponent', () => {
     const fullPath = component.buildFullImagePath(path);
 
     expect(fullPath).toBe(
-      `${component.configuration.images.base_url}${component.configuration.images.poster_sizes[2]}${path}`
+      `${component.configuration.images.base_url}${component.configuration.images.poster_sizes[3]}${path}`
     );
   });
 });

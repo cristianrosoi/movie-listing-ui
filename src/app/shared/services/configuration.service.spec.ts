@@ -1,3 +1,4 @@
+import { BuildUrl } from './../utils/buildUrl.util';
 import { TestBed, async } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ConfigurationService } from './configuration.service';
@@ -31,8 +32,8 @@ describe('ConfigurationService', () => {
           expect(result.images).toBeDefined();
         }
       );
-
-    const req = httpMock.expectOne(ServiceUrls.MOCKED.CONFIGURATION_URL);
+    const buildUrl = new BuildUrl();
+    const req = httpMock.expectOne(buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL));
     expect(req.request.method).toBe('GET');
   }));
 

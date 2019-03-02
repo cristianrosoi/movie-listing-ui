@@ -17,6 +17,6 @@ export class ConfigurationService {
     const url = buildUrl.fromPath(ServiceUrls.CONFIGURATION_URL);
     const mockedUrl = ServiceUrls.MOCKED.CONFIGURATION_URL;
 
-    return this.http.get<IConfiguration>(mockedUrl).toPromise();
+    return this.http.get<IConfiguration>(url).toPromise();
   }
 }

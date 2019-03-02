@@ -8,6 +8,7 @@ import { FilterListingsPipe } from 'src/app/shared/pipes/filter-listings.pipe';
 import { MovieListingComponent } from '../movie-listing/movie-listing.component';
 import { NowPlayingService } from 'src/app/shared/services/now-playing.service';
 import { ConfigurationService } from 'src/app/shared/services/configuration.service';
+import { LoaderComponent } from '../loader/loader.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -22,7 +23,8 @@ describe('HomeComponent', () => {
       declarations: [
         HomeComponent,
         FilterListingsPipe,
-        MovieListingComponent
+        MovieListingComponent,
+        LoaderComponent
       ]
     })
     .compileComponents();
