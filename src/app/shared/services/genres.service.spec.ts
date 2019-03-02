@@ -1,12 +1,25 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { GenresService } from './genres.service';
 
 describe('GenresService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  let service: GenresService;
+  let httpMock: HttpTestingController;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [GenresService]
+    });
+  }));
+
+  beforeEach(() => {
+    service = TestBed.get(GenresService);
+    httpMock = TestBed.get(HttpTestingController);
+  });
 
   it('should be created', () => {
-    const service: GenresService = TestBed.get(GenresService);
     expect(service).toBeTruthy();
   });
 });
