@@ -1,5 +1,5 @@
 <div class="main-container">
-  <div class="movie-filtering">
+  <div *ngIf="movieListings" class="movie-filtering">
     <form>
       <label for="sortingList">Sort by: </label>
       <select id="sortingList" [(ngModel)]="sortingList" name="sortingList">
@@ -26,7 +26,7 @@
     </app-movie-listing>
   </div>
 
-  <div *ngIf="(movieListings?.results | filterListings: sortingList:filterTerm).length == 0" class="no-movie-listings">
+  <div *ngIf="(movieListings?.results | filterListings: sortingList:filterTerm)?.length == 0" class="no-movie-listings">
     <h2>Sorry, no movies available</h2>
   </div>
 </div>
