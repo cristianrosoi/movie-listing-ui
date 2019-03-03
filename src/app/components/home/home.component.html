@@ -13,8 +13,12 @@
     </form>
   </div>
 
-  <div *ngIf="!movieListings" class="loader">
+  <div *ngIf="!movieListings && !movieListingsError" class="loader">
     <app-loader></app-loader>
+  </div>
+
+  <div *ngIf="!movieListings && movieListingsError" class="no-movie-listings">
+    <h2>Sorry an error occured. Please try again later.</h2>
   </div>
 
   <div *ngIf="movieListings" class="movie-listings">

@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
 
   sortOptions = CONSTANTS.sortOptions;
 
+  movieListingsError = false;
+
   constructor(private nowPlayingService: NowPlayingService,
               private configurationService: ConfigurationService,
               private genresService: GenresService) { }
@@ -60,10 +62,16 @@ export class HomeComponent implements OnInit {
         (responses: any[]) => {
           // fake a loading time
           setTimeout(() => {
+            this.movieListingsError = false;
             this.movieListings = responses[0];
             this.configuration = responses[1];
             this.genres = responses[2];
           }, 1000);
+        }
+      ).catch(
+        (error) => {
+          console.error(`Can't get Data /src/app/components/home.component.ts -> getData()`, error);
+          this.movieListingsError = true;
         }
       );
   }
