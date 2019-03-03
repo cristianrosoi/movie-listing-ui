@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     this.filterTerm = CONSTANTS.defaultFilterTerm;
 
     // Check de users device
-    MobileCheck.isMobile() ? this.isMobile = true : this.isMobile = false;
+    this.isMobile = MobileCheck.isMobile();
   }
 
   /**
