@@ -71,6 +71,10 @@ and (orientation : portrait) {
   .movie-filtering form {
     margin-bottom: 20px;
   }
+
+  #sortingList {
+    color: black;
+  }
 }
 
 /* Mobile phones Portrait */
@@ -84,5 +88,9 @@ and (orientation : portrait) {
 
   .movie-filtering form {
     margin-bottom: 20px;
+  }
+
+  #sortingList {
+    color: black;
   }
 }
