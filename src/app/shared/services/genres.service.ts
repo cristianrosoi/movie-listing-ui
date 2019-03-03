@@ -5,7 +5,6 @@ import { ServiceUrls } from '../constants/service-urls.constant';
 import { IGenres } from '../models/genres.interface';
 import { BuildUrl } from './../utils/buildUrl.util';
 import { Config } from 'src/app/config';
-import find from 'lodash/find';
 
 @Injectable({
   providedIn: 'root'

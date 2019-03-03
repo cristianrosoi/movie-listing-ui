@@ -8,6 +8,7 @@ import { IConfiguration } from './../../shared/models/configuration.interface';
 import { IGenres } from './../../shared/models/genres.interface';
 import { CONSTANTS } from './../../shared/constants/constants';
 import { FilterListingsPipe } from './../../shared/pipes/filter-listings.pipe';
+import { MobileCheck } from './../../shared/utils/mobileCheck.util';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
   movieListings: IMovieListings;
   configuration: IConfiguration;
   genres: IGenres;
+  isMobile: boolean;
 
   sortingList: string;
   filterTerm: string;
@@ -38,6 +40,9 @@ export class HomeComponent implements OnInit {
 
     // Set the default filter rating
     this.filterTerm = CONSTANTS.defaultFilterTerm;
+
+    // Check de users device
+    MobileCheck.isMobile() ? this.isMobile = true : this.isMobile = false;
   }
 
   /**
