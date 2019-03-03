@@ -42,6 +42,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Here is a short list of some important files and folders
 
+```
 |-/src
 |--/app
 |---/components
@@ -67,10 +68,13 @@ Here is a short list of some important files and folders
 |--index.html
 |--style.css
 |-package.json
+```
 
 The components are stored in /src/app/components and each component have a own folder i.e. /header, /footer etc.
 
 Other files which get imported in the components are kept in the /src/app/shared folder and depending on their purpose there are more subfolders such as: 
+
+```
   /constants (i.e. of usecase -> strings that need to be imported in different places)
     -> constants.ts
     -> service-urls.constant.ts ==> API paths and mocked paths
@@ -90,12 +94,15 @@ Other files which get imported in the components are kept in the /src/app/shared
     -> buildUrl.util.ts         ===> return the full URL used in the API calls - used if API KEY is provided
                                 ===> Note: if no API KEY is provided, the mocked urls are defined in service-urls.constant.ts
     -> mobileCheck.util.ts      ===> checks if the user is using a mobile device
+```
 
 The root component is the app.component.ts
 
+```
 Config.ts
   BASE_URL: 'https://api.themoviedb.org',
   VERSION: '3',
   API_KEY: '', // provide here an API KEY from The Movie Database
   LANGUAGE: 'en-US',
   PAGE: '&page=1'
+```
