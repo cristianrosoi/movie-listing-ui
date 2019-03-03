@@ -37,25 +37,28 @@
   background: transparent;
   border: none;
   border-bottom: 1px solid #ababab;
-  font-size: 1.1em;
-}
-
-#sortingList {
-  background: #1e272e;
-  border: none;
-  min-height: 30px;
-  font-size: 1.1em;
-}
-
-label,
-#filterField,
-#sortingList {
   color: #ababab;
+  border-radius: none;
+  font-size: 1.1em;
 }
 
-#filterField:focus,
-#sortingList:focus {
-  outline: none;
+@media only screen and (min-width: 1025px) {
+  #sortingList {
+    background: #1e272e;
+    border: none;
+    min-height: 30px;
+    font-size: 1.1em;
+  }
+
+  label,
+  #sortingList {
+    color: #ababab;
+  }
+
+  #filterField:focus,
+  #sortingList:focus {
+    outline: none;
+  }
 }
 
 /* iPhone X Portrait*/
@@ -71,10 +74,6 @@ and (orientation : portrait) {
   .movie-filtering form {
     margin-bottom: 20px;
   }
-
-  #sortingList {
-    color: black;
-  }
 }
 
 /* Mobile phones Portrait */
@@ -88,9 +87,5 @@ and (orientation : portrait) {
 
   .movie-filtering form {
     margin-bottom: 20px;
-  }
-
-  #sortingList {
-    color: black;
   }
 }
