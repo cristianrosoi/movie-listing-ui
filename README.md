@@ -12,6 +12,14 @@ If you don't provide an API Key it will still run, but on some mocked data which
 
 There is a demo version of this app that runs some mocked data and it's hosted on [github pages](https://cristianrosoi.github.io/movie-listing-ui/).
 
+## Running a local copy
+
+Clone or download the project then run:
+
+```js
+npm install
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -72,6 +80,14 @@ Here is a short list of some important files and folders
 
 The components are stored in /src/app/components and each component have a own folder i.e. /header, /footer etc.
 
+```
+Each component folder have 4 files inside:
+  -> *.component.css => style file
+  -> *.component.html => template file
+  -> *.component.spec.ts => test file
+  -> *.component.ts => logic file
+```
+
 Other files which get imported in the components are kept in the /src/app/shared folder and depending on their purpose there are more subfolders such as: 
 
 ```
@@ -106,3 +122,14 @@ Config.ts
   LANGUAGE: 'en-US',
   PAGE: '&page=1'
 ```
+
+```
+Assets folder
+  -> mocked-configuration.json
+  -> mocked-genres.json
+  -> mocked-get-movie-now-playing.json
+```
+
+Google Font is added in the index.html file -> [Quicksand](https://fonts.google.com/?query=quicksand).
+
+Style.css is a global css file which applies to all components.
